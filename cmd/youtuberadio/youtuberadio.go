@@ -46,6 +46,10 @@ func main() {
 	}
 
 	bid := broadcast.Id
+	defer func() {
+		fmt.Println("Deleting broadcast", bid)
+		service.LiveBroadcasts.Delete(bid).Do()
+	}()
 	fmt.Printf("Your broadcast ID is %v\n", bid)
 
 	streamRequest := &youtube.LiveStream{
@@ -65,6 +69,10 @@ func main() {
 	}
 
 	sid := stream.Id
+	defer func() {
+		fmt.Println("Deleting stream", sid)
+		service.LiveStreams.Delete(sid).Do()
+	}()
 	fmt.Printf("Your stream ID is %v\n", sid)
 
 	callBind := service.LiveBroadcasts.Bind(bid, "id")
