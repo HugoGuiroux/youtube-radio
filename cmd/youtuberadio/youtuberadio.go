@@ -74,5 +74,5 @@ func main() {
 		log.Fatalf("Error making API call to bind broadcast and stream: %v", err.Error())
 	}
 
-	fmt.Println("Stream and broadcast bounded")
+	fmt.Println("Stream and broadcast bounded. URL is", stream.Cdn.IngestionInfo.IngestionAddress, "and stream name is", stream.Cdn.IngestionInfo.StreamName)
 }
