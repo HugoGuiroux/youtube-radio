@@ -50,9 +50,10 @@ func GetBroadcastUrl() (*Handle, error) {
 		Snippet: &youtube.LiveStreamSnippet{
 			Title: "Test LiveStream",
 		},
+		// TODO: get this from the video?
 		Cdn: &youtube.CdnSettings{
 			FrameRate:     "30fps",
-			Resolution:    "240p",
+			Resolution:    "360p",
 			IngestionType: "rtmp",
 		},
 	}
